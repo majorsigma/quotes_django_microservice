@@ -34,9 +34,8 @@ def like(request, pk, format=None):
                 user_id=data[0]['id'], quote_id=pk)
             quoteuser.save()
             publish('quote_liked', pk)
-            print('Quoteuse created')
+            print('Quoteuser created')
             return Response('Quote liked...', status=status.HTTP_201_CREATED)
 
     except Exception as e:
-
         return Response({"error": "You can only like a qoute once"}, status=status.HTTP_400_BAD_REQUEST)
